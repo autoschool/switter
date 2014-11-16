@@ -3,7 +3,7 @@
 ### Run application
 
   * Install Maven from [here](http://maven.apache.org)
-  * `git clone git@github.com:autoschool/weather.git` - checkout application
-  * `cd weather` - go to application directory
+  * `git clone git@github.com:autoschool/switter.git` - checkout application
+  * `cd switter` - go to application directory
   * `mvn jetty:run` - run server
   * `http://localhost:8080` - open in browser

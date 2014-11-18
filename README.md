@@ -7,3 +7,7 @@
   * `cd switter` - go to application directory
   * `mvn jetty:run` - run server
   * `http://localhost:8080` - open in browser
+ 
+### Test application
+  * `mvn clean test` 
+  * `mvn clean verify`

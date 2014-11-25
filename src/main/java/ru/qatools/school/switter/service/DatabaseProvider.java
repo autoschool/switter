@@ -34,7 +34,6 @@ public class DatabaseProvider implements ContainerRequestFilter {
             flyway.migrate();
         } catch (Exception e) {
             logger.error("Failed to start embedded database", e);
-            System.exit(-1);
         }
     }
 

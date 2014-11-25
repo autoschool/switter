@@ -3,7 +3,7 @@
 <@layout.layout title="Blog: posts">
 <div class="row">
     <div class="col-md-12">
-        <form class="form" role="form" action="/post" method="post">
+        <form class="form" role="form" action="/post/" method="post">
             <div class="page-header">
                 <div class="form-group">
                     <input type="text" class="form-control" id="title" name="title"

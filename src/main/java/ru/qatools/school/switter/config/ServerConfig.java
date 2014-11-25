@@ -11,7 +11,6 @@ import ru.yandex.qatools.properties.providers.MapOrSyspropPathReplacerProvider;
  *         Date: 17.11.14
  */
 
-@SuppressWarnings("unused")
 @With(MapOrSyspropPathReplacerProvider.class)
 @Resource.Classpath("${system.environment}.properties")
 public class ServerConfig {

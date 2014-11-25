@@ -21,7 +21,7 @@ public class SimpleTest {
     @Test
     public void testEnvironmentConfigTest() {
         ServerConfig config = ServerConfig.newInstance();
-        assertThat(config.getDbPath(), notNullValue());
+        assertThat(config.getDbLocation(), notNullValue());
 
     }
 }

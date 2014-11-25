@@ -16,7 +16,7 @@ import ru.yandex.qatools.properties.providers.MapOrSyspropPathReplacerProvider;
 public class ServerConfig {
 
     @Property("db.path")
-    private String dbPath = "/tmp/switter";
+    private String dbLocation = "mem";
 
     @Property("db.name")
     private String dbName = "switter";
@@ -25,12 +25,12 @@ public class ServerConfig {
         PropertyLoader.populate(this);
     }
 
-    public String getDbPath() {
-        return dbPath;
+    public String getDbLocation() {
+        return dbLocation;
     }
 
-    public void setDbPath(String dbPath) {
-        this.dbPath = dbPath;
+    public void setDbLocation(String dbLocation) {
+        this.dbLocation = dbLocation;
     }
 
     public String getDbName() {

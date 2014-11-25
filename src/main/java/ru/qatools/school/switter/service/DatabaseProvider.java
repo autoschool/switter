@@ -26,7 +26,7 @@ public class DatabaseProvider implements ContainerRequestFilter {
     static {
         try {
             ServerConfig config = ServerConfig.newInstance();
-            dbUrl = format("jdbc:h2:%s/%s,user=%s", config.getDbLocation(), config.getDbName(), DBUSER);
+            dbUrl = format("jdbc:h2:%s:%s,user=%s", config.getDbLocation(), config.getDbName(), DBUSER);
             logger.info(format("Starting embedded database with url '%s' ...", dbUrl));
             openConnection();
             Flyway flyway = new Flyway();

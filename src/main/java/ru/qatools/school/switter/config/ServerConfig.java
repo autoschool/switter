@@ -16,10 +16,10 @@ import ru.yandex.qatools.properties.providers.MapOrSyspropPathReplacerProvider;
 public class ServerConfig {
 
     @Property("db.path")
-    private String dbPath;
+    private String dbPath = "/tmp/switter";
 
     @Property("db.name")
-    private String dbName = "default";
+    private String dbName = "switter";
 
     ServerConfig() {
         PropertyLoader.populate(this);

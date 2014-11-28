@@ -2,6 +2,8 @@ package ru.qatools.school.switter.resources;
 
 import org.glassfish.jersey.server.mvc.ErrorTemplate;
 import org.glassfish.jersey.server.mvc.Template;
+import org.pegdown.Extensions;
+import org.pegdown.PegDownProcessor;
 import ru.qatools.school.switter.models.Post;
 
 import javax.ws.rs.*;
@@ -43,9 +45,13 @@ public class PostResources {
     @Template(name = "/post/showPost.ftl")
     @Consumes(MediaType.APPLICATION_FORM_URLENCODED)
     public Post createPost(@FormParam("title") String title,
-                           @FormParam("body") String body) {
+                           @FormParam("body") String rawBody) {
         Post post = new Post();
         post.setTitle(title);
+
+        String body = new PegDownProcessor(Extensions.ALL + Extensions.SUPPRESS_ALL_HTML)
+                .markdownToHtml(rawBody);
+
         post.setBody(body);
         post.saveIt();
         return post;

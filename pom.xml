@@ -57,6 +57,13 @@
             <version>3.0</version>
         </dependency>
 
+        <!-- Markdown support -->
+        <dependency>
+            <groupId>org.pegdown</groupId>
+            <artifactId>pegdown</artifactId>
+            <version>1.4.2</version>
+        </dependency>
+
         <!-- Logger -->
         <dependency>
             <groupId>org.slf4j</groupId>

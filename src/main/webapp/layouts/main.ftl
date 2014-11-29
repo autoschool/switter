@@ -4,7 +4,8 @@
     <link rel="shortcut icon" href="/public/app/img/switter-48x48.png" type="image/png">
 
     <script src="/public/jquery/js/jquery.min.js" type="text/javascript"></script>
-    <link href="/public/bootstrap/css/bootstrap.min.css" type="text/css" rel="stylesheet"/>
+    <link href="/public/bootstrap/css/bootstrap.css" type="text/css" rel="stylesheet"/>
+    <link href="/public/bootstrap/css/bootstrap-theme.css" type="text/css" rel="stylesheet"/>
     <script src="/public/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 
     <link href="/public/app/css/main.css" type="text/css" rel="stylesheet"/>
@@ -71,6 +72,5 @@
 </div>
 <footer>
 </footer>
-<script src="/public/app/js/main.js"></script>
 </body>
 </#macro>

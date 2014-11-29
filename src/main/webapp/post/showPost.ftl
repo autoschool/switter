@@ -3,11 +3,10 @@
 <@layout.layout title="Blog: post">
 <div class="row">
     <div class="col-md-12">
-        <div class="page-header">
-            <h2>${model.title}</h2>
-        </div>
-        <div class="post-body">
-            ${model.body}
+        <div class="post">
+            <h2 class="entry-title"><a href="/post/${model.id}">${model.title}</a></h2>
+            <p class="entry-meta">Posted on: ${model.createdAt} | By Unknown </p>
+            <div class="entry-description">${model.body}</div>
         </div>
     </div>
 </div>

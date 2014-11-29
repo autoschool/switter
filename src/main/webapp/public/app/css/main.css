@@ -1,57 +1,90 @@
+body {
+    background-color:#eeeeee;
+}
+
 .content {
-    margin-top: 200px;
+    margin-top: 0px;
 }
 
-.navbar-logo {
+.header-logo h1 {
+    font-size: 55px;
+    line-height: 1;
+    color:#fefeff;
+    margin-top:40px;
+}
+
+.header-logo {
     background-color: #242B32;
-    padding: 31px 0;
+    padding: 70px 0 20px 0;
+    min-height:199px;
+    color:#aaaacc;
 }
 
-.navbar-logo .navbar-nav > li > a {
+.header-logo .navbar-nav > li > a {
     color: #cccccc;
     padding: 30px 15px;
     font-size: 24px;
 }
 
-.navbar-logo nav > li > a:hover, .nav > li > a:focus {
+.header-logo nav > li > a:hover, .nav > li > a:focus {
     text-decoration: none;
     background-color: #2C3840;
 }
 
-.navbar-logo nav > li > a:hover, .nav > li > a:active {
+.header-logo nav > li > a:hover, .nav > li > a:active {
     text-decoration: none;
     background-color: #2C3840;
 }
 
-.navbar-logo nav > li > a:hover, .nav > li > a:hover {
+.header-logo nav > li > a:hover, .nav > li > a:hover {
     text-decoration: none;
     background-color: #2C3840;
 }
 
-.navbar-logo .navbar-brand-img {
+.header-logo .brand-img {
     line-height: 20px;
-    padding: 15px;
+    padding: 0 15px;
     float: left;
     height: 80px;
 }
 
-.navbar-logo .navbar-brand {
-    padding: 30px 15px;
+.header-logo .brand {
     font-size: 42px;
     color: #FF0000;
-    float: left;
-    height: 82px;
-}
-
-.navbar-logo .navbar-brand span {
-    margin-top: 20px;
 }
 
 .navbar-menu {
     background: none repeat scroll 0% 0% #566572;
-    top: 145px
 }
 
 .navbar-menu a {
     color: #cccccc;
+}
+
+.post, .comments {
+    opacity: 0.9;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0px 1px 1px #aaa;
+    padding: 1em 3em;
+    margin: 2em auto;
+}
+
+.entry-title a {
+    color: #222;
+}
+
+.entry-description {
+    color: #344151;
+    font-family: "Source Sans Pro",sans-serif;
+    font-size: 1.15em;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 1.5em;
+}
+
+.entry-meta {
+    color: #999;
+    font-size: 90%;
+    margin: 0 0 1.8em;
 }

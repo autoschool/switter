@@ -16,9 +16,11 @@
 
         <jersey.version>2.13</jersey.version>
         <sl4j.version>1.7.7</sl4j.version>
+        <jetty.host>localhost</jetty.host>
         <jetty.port>9998</jetty.port>
 
         <environment>test</environment>
+
     </properties>
 
     <dependencies>
@@ -73,6 +75,12 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.11</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.detro.ghostdriver</groupId>
+            <artifactId>phantomjsdriver</artifactId>
+            <version>1.1.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -136,28 +144,90 @@
                 </configuration>
             </plugin>
             <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.16</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/*WebTest.java</exclude>
+                    </excludes>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-failsafe-plugin</artifactId>
+                <version>2.17</version>
+                <configuration>
+                    <includes>
+                        <include>**/*WebTest.java</include>
+                    </includes>
+                    <systemProperties>
+                        <systemProperty>
+                            <name>webdriver.baseurl</name>
+                            <value>http://${jetty.host}:${jetty.port}</value>
+                        </systemProperty>
+                    </systemProperties>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.apache.maven.surefire</groupId>
+                        <artifactId>surefire-junit47</artifactId>
+                        <version>2.18</version>
+                    </dependency>
+                </dependencies>
+                <executions>
+                    <execution>
+                        <id>integration-test</id>
+                        <goals>
+                            <goal>integration-test</goal>
+                        </goals>
+                    </execution>
+                    <execution>
+                        <id>verify</id>
+                        <goals>
+                            <goal>verify</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
                 <groupId>org.eclipse.jetty</groupId>
                 <artifactId>jetty-maven-plugin</artifactId>
                 <version>9.1.3.v20140225</version>
                 <configuration>
                     <scanIntervalSeconds>0</scanIntervalSeconds>
-                    <systemProperties>
-                        <systemProperty>
-                            <name>environment</name>
-                            <value>prod</value>
-                        </systemProperty>
-                    </systemProperties>
                     <webApp>
                         <contextPath>/</contextPath>
                     </webApp>
-                    <stopPort>9847</stopPort>
                     <stopKey>tms-local</stopKey>
-                    <jvmArgs>
-                        -Xmx1024m
-                        -XX:MaxPermSize=512m
-                    </jvmArgs>
-                    <goal>run-forked</goal>
+                    <stopPort>9847</stopPort>
                 </configuration>
+                <executions>
+                    <execution>
+                        <id>start-jetty</id>
+                        <phase>pre-integration-test</phase>
+                        <goals>
+                            <goal>start</goal>
+                        </goals>
+                        <configuration>
+                            <systemProperties>
+                                <systemProperty>
+                                    <name>environment</name>
+                                    <value>test</value>
+                                </systemProperty>
+                            </systemProperties>
+                            <scanIntervalSeconds>0</scanIntervalSeconds>
+                            <daemon>true</daemon>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>stop-jetty</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>stop</goal>
+                        </goals>
+                    </execution>
+                </executions>
             </plugin>
         </plugins>
     </build>
